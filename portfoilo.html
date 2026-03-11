@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<title>Portfolio</title>
+</head>
+
+<body class="bg-white text-gray-900">
+
+<section class="max-w-7xl mx-auto px-6 py-16">
+
+<h1 class="text-4xl font-bold mb-10">Portfolio</h1>
+
+<div class="flex gap-6 mb-10">
+
+<button onclick="filterProjects('all')">All</button>
+<button onclick="filterProjects('branding')">Branding</button>
+<button onclick="filterProjects('web')">Web</button>
+<button onclick="filterProjects('print')">Print</button>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="project branding group">
+<img src="https://picsum.photos/600/500" class="rounded-lg group-hover:scale-105 transition">
+</div>
+
+<div class="project web group">
+<img src="https://picsum.photos/600/501" class="rounded-lg group-hover:scale-105 transition">
+</div>
+
+<div class="project print group">
+<img src="https://picsum.photos/600/502" class="rounded-lg group-hover:scale-105 transition">
+</div>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
