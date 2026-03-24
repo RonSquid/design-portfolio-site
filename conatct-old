@@ -1,0 +1,41 @@
+<section class="max-w-3xl mx-auto px-6 py-20">
+
+<h1 class="text-4xl font-bold mb-10">Contact</h1>
+
+<form name="contact" method="POST" data-netlify="true" class="space-y-6">
+
+<input type="hidden" name="form-name" value="contact">
+
+<input
+type="text"
+name="name"
+placeholder="Name"
+required
+class="w-full border p-4 rounded"
+/>
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+required
+class="w-full border p-4 rounded"
+/>
+
+<textarea
+name="message"
+placeholder="Message"
+required
+rows="5"
+class="w-full border p-4 rounded"
+></textarea>
+
+<button
+type="submit"
+class="bg-black text-white px-8 py-4 rounded-lg">
+Send Message
+</button>
+
+</form>
+
+</section>
