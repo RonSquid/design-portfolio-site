@@ -1,34 +1,19 @@
-// DARK MODE
+// APPLY SAVED MODE
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+}
 
+// TOGGLE
 const toggle = document.getElementById("darkToggle");
 
 if (toggle) {
-toggle.addEventListener("click", () => {
-document.documentElement.classList.toggle("dark");
-});
-}
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
 
-
-// FILTER PROJECTS
-
-function filterProjects(category) {
-
-const projects = document.querySelectorAll(".project");
-
-projects.forEach(project => {
-
-if (category === "all") {
-project.style.display = "block";
-}
-
-else if (project.classList.contains(category)) {
-project.style.display = "block";
-}
-
-else {
-project.style.display = "none";
-}
-
-});
-
+    if (document.documentElement.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  });
 }
