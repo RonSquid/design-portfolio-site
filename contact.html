@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Designer Portfolio</title>
+
+<title>Contact</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -39,7 +40,7 @@ tailwind.config = {
 
 <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
 
-<!-- ✅ NEW NAV ONLY -->
+<!-- ✅ SAME NAV AS INDEX -->
 <header class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-800">
 
 <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -73,7 +74,7 @@ Ron Leighton
 <a href="index.html" class="nav-link">Home</a>
 <a href="portfolio.html" class="nav-link">Portfolio</a>
 <a href="about.html" class="nav-link">About</a>
-<a href="contact.html" class="nav-link">Contact</a>
+<a href="contact.html" class="nav-link font-semibold">Contact</a>
 
 <button id="darkToggleMobile">Toggle Dark Mode</button>
 
@@ -82,20 +83,64 @@ Ron Leighton
 
 </header>
 
-<!-- HERO -->
-<section class="max-w-7xl mx-auto px-6 py-32">
-<h2 class="text-5xl md:text-7xl font-bold mb-6">H1 header</h2>
-<p class="text-xl text-gray-600 dark:text-gray-300 max-w-xl mb-8">
-Creating modern brands, websites and digital experiences that stand out.
-</p>
+<!-- CONTACT FORM -->
+<section class="max-w-3xl mx-auto px-6 py-20">
 
-<a href="portfolio.html"
-class="bg-black text-white dark:bg-white dark:text-black px-8 py-4 rounded-lg">
-View Work
-</a>
+<h1 class="text-4xl font-bold mb-10">Contact</h1>
+
+<form 
+name="contact"
+method="POST"
+data-netlify="true"
+action="/success.html"
+class="space-y-6"
+>
+
+<input type="hidden" name="form-name" value="contact">
+
+<!-- NAME -->
+<div>
+<label class="block mb-2 font-medium">Name</label>
+<input
+type="text"
+name="name"
+required
+class="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-lime-500"
+/>
+</div>
+
+<!-- EMAIL -->
+<div>
+<label class="block mb-2 font-medium">Email</label>
+<input
+type="email"
+name="email"
+required
+class="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-lime-500"
+/>
+</div>
+
+<!-- MESSAGE -->
+<div>
+<label class="block mb-2 font-medium">Message</label>
+<textarea
+name="message"
+rows="5"
+required
+class="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-lime-500"
+></textarea>
+</div>
+
+<!-- BUTTON -->
+<button
+type="submit"
+class="bg-lime-500 hover:bg-lime-600 text-white font-semibold px-8 py-4 rounded-lg transition">
+Send Message
+</button>
+
+</form>
+
 </section>
-
-<!-- (rest of your sections stay the same) -->
 
 <script src="/assets/js/script.js"></script>
 
