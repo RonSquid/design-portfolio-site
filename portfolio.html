@@ -1,16 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>PORTFOLIO</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
 
-<title>Portfolio</title>
+<script>
+tailwind.config = {
+  darkMode: 'class'
+}
+</script>
+
+<style>
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+</style>
+
 </head>
 
-<body class="bg-white text-gray-900">
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
 
+<!-- ✅ SAME NAV AS INDEX -->
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<div id="hero-placeholder"></div>
+
+
+<!-- PORTFOLIO -->
 <section class="max-w-7xl mx-auto px-6 py-16">
 
 <h1 class="text-4xl font-bold mb-10">Portfolio</h1>
@@ -42,7 +79,7 @@
 
 </section>
 
-<script src="script.js"></script>
+<script src="/assets/js/script.js"></script>
 
 </body>
 </html>

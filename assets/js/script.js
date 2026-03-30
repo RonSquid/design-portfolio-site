@@ -1,23 +1,38 @@
-// ✅ APPLY SAVED DARK MODE ON LOAD (keep this OUTSIDE)
+// ✅ APPLY SAVED DARK MODE
 if (localStorage.getItem("theme") === "dark") {
   document.documentElement.classList.add("dark");
 }
 
 
-// ✅ LOAD NAV COMPONENT
-fetch("/components/nav.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("nav-placeholder").innerHTML = data;
+// ✅ LOAD COMPONENTS
+Promise.all([
+  fetch("/components/nav.html").then(res => res.text()),
+  fetch("/components/hero.html").then(res => res.text()),
+  fetch("/components/footer.html").then(res => res.text())
+])
+.then(([nav, hero, footer]) => {
 
-    initNav(); // run AFTER nav loads
-  });
+  if (document.getElementById("nav-placeholder")) {
+    document.getElementById("nav-placeholder").innerHTML = nav;
+  }
+
+  if (document.getElementById("hero-placeholder")) {
+    document.getElementById("hero-placeholder").innerHTML = hero;
+  }
+
+  if (document.getElementById("footer-placeholder")) {
+    document.getElementById("footer-placeholder").innerHTML = footer;
+  }
+
+  initNav();
+  initHero();
+
+});
 
 
-// ✅ INIT NAV FUNCTION (ALL NAV LOGIC GOES HERE)
+// ✅ NAV LOGIC
 function initNav() {
 
-  // DARK MODE FUNCTION
   function toggleDarkMode() {
     document.documentElement.classList.toggle("dark");
 
@@ -28,15 +43,12 @@ function initNav() {
     }
   }
 
-  // DARK MODE BUTTONS
   const toggle = document.getElementById("darkToggle");
   const toggleMobile = document.getElementById("darkToggleMobile");
 
   if (toggle) toggle.addEventListener("click", toggleDarkMode);
   if (toggleMobile) toggleMobile.addEventListener("click", toggleDarkMode);
 
-
-  // MOBILE MENU
   const menuBtn = document.getElementById("menuToggle");
   const mobileMenu = document.getElementById("mobileMenu");
 
@@ -46,15 +58,46 @@ function initNav() {
     });
   }
 
-
-  // ACTIVE LINK
   const links = document.querySelectorAll(".nav-link");
   const currentPage = window.location.pathname.split("/").pop();
 
   links.forEach(link => {
     if (link.getAttribute("href").includes(currentPage)) {
-      link.classList.add("font-semibold", "text-black", "dark:text-white");
+      link.classList.add("font-semibold");
     }
   });
+
+}
+
+
+// ✅ HERO DYNAMIC CONTENT
+function initHero() {
+
+  const title = document.getElementById("hero-title");
+  const subtitle = document.getElementById("hero-subtitle");
+
+  const page = window.location.pathname.split("/").pop();
+
+  if (!title || !subtitle) return;
+
+  if (page === "index.html" || page === "") {
+    title.textContent = "Modern Design & Digital Experiences";
+    subtitle.textContent = "Branding, web design, and creative direction.";
+  }
+
+  if (page === "portfolio.html") {
+    title.textContent = "Selected Work";
+    subtitle.textContent = "A collection of branding and digital projects.";
+  }
+
+  if (page === "about.html") {
+    title.textContent = "About Me";
+    subtitle.textContent = "Designer focused on clarity, impact, and aesthetics.";
+  }
+
+  if (page === "contact.html") {
+    title.textContent = "Let’s Work Together";
+    subtitle.textContent = "Tell me about your project.";
+  }
 
 }
