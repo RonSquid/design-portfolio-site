@@ -14,26 +14,7 @@ tailwind.config = {
 }
 </script>
 
-<style>
-.nav-link {
-  position: relative;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: currentColor;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-</style>
+<link rel="stylesheet" href="/assets/css/styles.css">
 
 </head>
 
@@ -54,21 +35,21 @@ tailwind.config = {
 <div class="grid md:grid-cols-3 gap-10">
 
 <div class="group cursor-pointer">
-<img src="/projects/barb/images/barb-01.jpg"
+<img src="/projects/project01/images/01.jpg"
 class="rounded-xl mb-4 transition duration-300 group-hover:scale-105">
-<h4 class="font-medium">Brand Identity</h4>
+<h4 class="font-medium">Website Design and Development</h4>
 </div>
 
 <div class="group cursor-pointer">
-<img src="https://picsum.photos/600/501"
+<img src="/projects/project02/images/01.jpg"
 class="rounded-xl mb-4 transition duration-300 group-hover:scale-105">
-<h4 class="font-medium">Website Design</h4>
+<h4 class="font-medium">Book Covers</h4>
 </div>
 
 <div class="group cursor-pointer">
-<img src="https://picsum.photos/600/502"
+<img src="/projects/project03/images/01.jpg"
 class="rounded-xl mb-4 transition duration-300 group-hover:scale-105">
-<h4 class="font-medium">Product UI</h4>
+<h4 class="font-medium">Website Design and Development</h4>
 </div>
 
 </div>
@@ -144,6 +125,7 @@ Start a Project
 </a>
 
 </section>
+<footer><div id="footer-placeholder"></div></footer>
 
 <script src="/assets/js/script.js"></script>
 

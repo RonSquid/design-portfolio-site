@@ -15,26 +15,7 @@ tailwind.config = {
 }
 </script>
 
-<style>
-.nav-link {
-  position: relative;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: currentColor;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-</style>
+<link rel="stylesheet" href="/assets/css/styles.css">
 
 </head>
 
@@ -46,38 +27,101 @@ tailwind.config = {
 <!-- HERO -->
 <div id="hero-placeholder"></div>
 
-
 <!-- PORTFOLIO -->
-<section class="max-w-7xl mx-auto px-6 py-16">
 
-<h1 class="text-4xl font-bold mb-10">Portfolio</h1>
 
-<div class="flex gap-6 mb-10">
+<section class="max-w-7xl mx-auto px-6 py-20">
 
-<button onclick="filterProjects('all')">All</button>
-<button onclick="filterProjects('branding')">Branding</button>
-<button onclick="filterProjects('web')">Web</button>
-<button onclick="filterProjects('print')">Print</button>
-
+<!-- FILTER -->
+<div class="flex gap-4 mb-12">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="web">Web</button>
+<button class="filter-btn" data-filter="print">Print</button>
 </div>
 
-<div class="grid md:grid-cols-3 gap-8">
+<!-- GRID -->
+<div id="portfolioGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-<div class="project branding group">
-<img src="https://picsum.photos/600/500" class="rounded-lg group-hover:scale-105 transition">
-</div>
+<!-- REPEAT ITEM -->
+<a href="/projects/project01/index.html" class="project-item group" data-category="web">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
 
-<div class="project web group">
-<img src="https://picsum.photos/600/501" class="rounded-lg group-hover:scale-105 transition">
-</div>
+    <img src="/projects/project01/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
 
-<div class="project print group">
-<img src="https://picsum.photos/600/502" class="rounded-lg group-hover:scale-105 transition">
-</div>
+  </div>
+</a>
+
+<a href="/projects/project02/index.html" class="project-item group" data-category="print">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project02/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<a href="/projects/project03/index.html" class="project-item group" data-category="print">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project03/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<a href="/projects/project04/index.html" class="project-item group" data-category="web">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project04/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<a href="/projects/project05/index.html" class="project-item group" data-category="web">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project05/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<a href="/projects/project06/index.html" class="project-item group" data-category="print">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project06/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<a href="/projects/project07/index.html" class="project-item group" data-category="print">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project07/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<a href="/projects/project08/index.html" class="project-item group" data-category="print">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project08/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<a href="/projects/project09/index.html" class="project-item group" data-category="web">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project09/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<a href="/projects/project10/index.html" class="project-item group" data-category="web">
+  <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <img src="/projects/project10/images/thumb.jpg"
+    class="w-full h-full object-contain p-4 transition duration-500 group-hover:scale-110">
+  </div>
+</a>
+
+<!-- Continue same pattern up to project20 -->
 
 </div>
 
 </section>
+
+<footer><div id="footer-placeholder"></div></footer>
 
 <script src="/assets/js/script.js"></script>
 
