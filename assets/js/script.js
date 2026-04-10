@@ -1,3 +1,9 @@
+
+// PAGE LOAD ANIMATION
+window.addEventListener("load", () => {
+  document.body.classList.add("page-loaded");
+});
+
 // ✅ APPLY SAVED DARK MODE
 if (localStorage.getItem("theme") === "dark") {
   document.documentElement.classList.add("dark");
@@ -63,7 +69,7 @@ function initNav() {
 
   links.forEach(link => {
     if (link.getAttribute("href").includes(currentPage)) {
-      link.classList.add("font-semibold");
+      link.classList.add("text-lime-500", "font-semibold");
     }
   });
 
@@ -84,6 +90,11 @@ function initHero() {
   if (page === "index.html" || page === "") {
     title.textContent = "Modern Design & Digital Experiences";
     subtitle.textContent = "Branding, web design, and creative direction.";
+  
+   if (heroImage) {
+      heroImage.src = "/assets/images/header33.jpg";
+    }
+  
   }
 
   if (page === "portfolio.html") {
@@ -91,7 +102,8 @@ function initHero() {
     subtitle.textContent = "A collection of branding and digital projects.";
 
     if (heroImage) {
-      heroImage.src = "https://picsum.photos/1600/601";
+      // heroImage.src = "https://picsum.photos/1600/601";
+      heroImage.src = "/assets/images/header1.jpg";
     }
   }
 
@@ -100,7 +112,7 @@ function initHero() {
     subtitle.textContent = "Designer focused on clarity and impact.";
 
     if (heroImage) {
-      heroImage.src = "https://picsum.photos/1600/602";
+      heroImage.src = "/assets/images/header444.jpg";
     }
   }
 
@@ -109,7 +121,7 @@ function initHero() {
     subtitle.textContent = "Tell me about your project.";
 
     if (heroImage) {
-      heroImage.src = "https://picsum.photos/1600/603";
+      heroImage.src = "/assets/images/header22.jpg";
     }
   }
 }
@@ -152,3 +164,89 @@ document.addEventListener("click", (e) => {
   });
 
 });
+
+// PAGE TRANSITION ON LINK CLICK
+document.addEventListener("DOMContentLoaded", () => {
+
+  const links = document.querySelectorAll("a[href]");
+
+  links.forEach(link => {
+    link.addEventListener("click", function (e) {
+
+      const url = link.getAttribute("href");
+
+      // skip external links / anchors
+      if (url.startsWith("#") || url.startsWith("http")) return;
+
+      e.preventDefault();
+
+      document.body.classList.remove("page-loaded");
+
+      setTimeout(() => {
+        window.location = url;
+      }, 300);
+    });
+  });
+
+});
+
+// PROJECT NEXT / PREV NAV
+function initProjectNav() {
+
+  const container = document.getElementById("project-nav");
+  if (!container) return;
+
+  const path = window.location.pathname;
+
+  // match /projects/project01/
+  const match = path.match(/project(\d+)/);
+
+  if (!match) return;
+
+  let current = parseInt(match[1]);
+
+  const totalProjects = 20; // 🔥 UPDATE if needed
+
+  const prev = current - 1;
+  const next = current + 1;
+
+  function format(num) {
+    return num.toString().padStart(2, "0");
+  }
+
+  let html = `<div class="flex justify-between items-center border-t border-gray-200 dark:border-gray-700 pt-8">`;
+
+  // PREVIOUS
+  if (prev >= 1) {
+    html += `
+      <a href="/projects/project${format(prev)}/index.html"
+      class="group">
+        <span class="block text-sm text-gray-500 mb-1">Previous</span>
+        <span class="text-lg font-medium group-hover:text-lime-500 transition">
+          ← Project ${format(prev)}
+        </span>
+      </a>
+    `;
+  } else {
+    html += `<div></div>`;
+  }
+
+  // NEXT
+  if (next <= totalProjects) {
+    html += `
+      <a href="/projects/project${format(next)}/index.html"
+      class="group text-right">
+        <span class="block text-sm text-gray-500 mb-1">Next</span>
+        <span class="text-lg font-medium group-hover:text-lime-500 transition">
+          Project ${format(next)} →
+        </span>
+      </a>
+    `;
+  }
+
+  html += `</div>`;
+
+  container.innerHTML = html;
+}
+
+initProjectNav();

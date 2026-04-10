@@ -25,6 +25,10 @@
   width: 100%;
 }
 
+.nav-link {
+  transition: color 0.3s ease;
+}
+
 
 /* ==== NEW HOVER ===== */
 .nav-link:hover {
@@ -51,6 +55,18 @@ header {
   }
 }
 
+/* PAGE TRANSITIONS */
+
+.page-transition {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.page-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 /* ===== port filter styles nav ===== */
@@ -88,6 +104,26 @@ header {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/*------ PROJECT NAV ---*/
+.project-nav a {
+  position: relative;
+}
+
+.project-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.project-nav a:hover::after {
+  width: 100%;
 }
 
 /* ===== FOOTER ===== */
