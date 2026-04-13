@@ -28,6 +28,9 @@
 .nav-link {
   transition: color 0.3s ease;
 }
+.nav-link.text-lime-500::after {
+  width: 100%;
+}
 
 
 /* ==== NEW HOVER ===== */

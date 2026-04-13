@@ -65,13 +65,30 @@ function initNav() {
   }
 
   const links = document.querySelectorAll(".nav-link");
-  const currentPage = window.location.pathname.split("/").pop();
 
-  links.forEach(link => {
-    if (link.getAttribute("href").includes(currentPage)) {
-      link.classList.add("text-lime-500", "font-semibold");
-    }
-  });
+let path = window.location.pathname;
+
+if (path.endsWith("/")) {
+  path = path.slice(0, -1);
+}
+
+let currentPage = path.split("/").pop();
+
+// fix homepage
+if (currentPage === "") {
+  currentPage = "index.html";
+}
+
+links.forEach(link => {
+  const href = link.getAttribute("href");
+
+  // reset classes first
+  link.classList.remove("text-lime-500", "font-semibold");
+
+  if (href === currentPage) {
+    link.classList.add("text-lime-500", "font-semibold");
+  }
+});
 
 }
 
@@ -83,31 +100,38 @@ function initHero() {
   const subtitle = document.getElementById("hero-subtitle");
   const heroImage = document.querySelector("#hero-placeholder img");
 
-  const page = window.location.pathname.split("/").pop();
+  let path = window.location.pathname;
+
+  if (path.endsWith("/")) {
+    path = path.slice(0, -1);
+  }
+
+  const page = path.split("/").pop();
 
   if (!title || !subtitle) return;
 
-  if (page === "index.html" || page === "") {
+  // HOME
+  if (page === "" || page === "index.html") {
     title.textContent = "Modern Design & Digital Experiences";
     subtitle.textContent = "Branding, web design, and creative direction.";
-  
-   if (heroImage) {
+
+    if (heroImage) {
       heroImage.src = "/assets/images/header33.jpg";
     }
-  
   }
 
-  if (page === "portfolio.html") {
+  // PORTFOLIO
+  if (page === "portfolio" || page === "portfolio.html") {
     title.textContent = "Selected Work";
     subtitle.textContent = "A collection of branding and digital projects.";
 
     if (heroImage) {
-      // heroImage.src = "https://picsum.photos/1600/601";
       heroImage.src = "/assets/images/header1.jpg";
     }
   }
 
-  if (page === "about.html") {
+  // ABOUT
+  if (page === "about" || page === "about.html") {
     title.textContent = "About Me";
     subtitle.textContent = "Designer focused on clarity and impact.";
 
@@ -116,7 +140,8 @@ function initHero() {
     }
   }
 
-  if (page === "contact.html") {
+  // CONTACT
+  if (page === "contact" || page === "contact.html") {
     title.textContent = "Let’s Work Together";
     subtitle.textContent = "Tell me about your project.";
 
@@ -124,6 +149,7 @@ function initHero() {
       heroImage.src = "/assets/images/header22.jpg";
     }
   }
+
 }
 // NAV SCROLL EFFECT
 window.addEventListener("scroll", () => {
