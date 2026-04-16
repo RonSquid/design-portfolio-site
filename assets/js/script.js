@@ -85,7 +85,7 @@ links.forEach(link => {
   // reset classes first
   link.classList.remove("text-lime-500", "font-semibold");
 
-  if (href === currentPage) {
+  if (href.includes(currentPage)) {
     link.classList.add("text-lime-500", "font-semibold");
   }
 });
