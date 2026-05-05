@@ -149,7 +149,20 @@ function initHero() {
       heroImage.src = "/assets/images/header22.jpg";
     }
   }
+// PARALLAX EFFECT
 
+const parallax = document.querySelector(".hero-parallax");
+
+window.addEventListener("scroll", () => {
+
+  const scrollY = window.scrollY;
+
+  if (parallax) {
+    parallax.style.transform =
+      `translateY(${scrollY * 0.2}px) scale(1.1)`;
+  }
+
+});
 }
 // NAV SCROLL EFFECT
 window.addEventListener("scroll", () => {

@@ -109,6 +109,66 @@ header {
   }
 }
 
+/* =========================
+   PREMIUM HERO
+========================= */
+
+/* IMAGE PARALLAX */
+
+.hero-parallax {
+  will-change: transform;
+  transition: transform 0.2s linear;
+}
+
+/* GRAIN OVERLAY */
+
+.hero-grain {
+  background-image:
+    radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 4px 4px;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+/* TITLE REVEAL */
+
+.hero-title {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFade 1s ease forwards;
+}
+
+/* SUBTITLE REVEAL */
+
+.hero-subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFade 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes heroFade {
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/*------ LIQUID HERO ---*/
+
+.liquid-bg {
+  background: radial-gradient(circle at 30% 30%, #84cc16, transparent 40%),
+              radial-gradient(circle at 70% 70%, #22c55e, transparent 40%);
+  animation: moveBg 10s infinite alternate ease-in-out;
+}
+
+@keyframes moveBg {
+  0% { background-position: 30% 30%, 70% 70%; }
+  100% { background-position: 40% 60%, 60% 40%; }
+}
+
 /*------ PROJECT NAV ---*/
 .project-nav a {
   position: relative;

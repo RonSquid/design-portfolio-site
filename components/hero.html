@@ -1,23 +1,39 @@
-<section class="relative h-[300px] flex items-center justify-center text-center overflow-hidden">
+<section class="relative overflow-hidden h-[420px] flex items-center">
 
-<!-- BACKGROUND IMAGE -->
-<img src="https://picsum.photos/1600/600"
-class="absolute inset-0 w-full h-full object-cover opacity-70">
+  <!-- PARALLAX IMAGE -->
+  <div class="hero-parallax absolute inset-0 scale-110">
 
-<!-- OVERLAY -->
-<div class="absolute inset-0 bg-black/40"></div>
+    <img
+      src="/assets/images/default-hero.jpg"
+      class="w-full h-full object-cover"
+      alt="Hero Image"
+    >
 
-<!-- CONTENT -->
-<div class="relative z-10 px-6">
+  </div>
 
-<h1 id="hero-title" class="text-3xl md:text-5xl font-bold text-white mb-4">
-Default Title
-</h1>
+  <!-- DARK OVERLAY -->
+  <div class="absolute inset-0 bg-black/45"></div>
 
-<p id="hero-subtitle" class="text-white/80 max-w-xl mx-auto">
-Default subtitle text
-</p>
+  <!-- GRAIN -->
+  <div class="hero-grain absolute inset-0 opacity-20"></div>
 
-</div>
+  <!-- CONTENT -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 text-white">
+
+    <h1
+      id="hero-title"
+      class="hero-title text-5xl md:text-7xl font-bold leading-tight mb-6"
+    >
+      Default Title
+    </h1>
+
+    <p
+      id="hero-subtitle"
+      class="hero-subtitle text-xl max-w-2xl text-white/80"
+    >
+      Default subtitle text
+    </p>
+
+  </div>
 
 </section>
