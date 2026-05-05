@@ -149,7 +149,7 @@ function initHero() {
       heroImage.src = "/assets/images/header22.jpg";
     }
   }
-// PARALLAX EFFECT
+// PARALLAX EFFECTs
 
 const parallax = document.querySelector(".hero-parallax");
 
