@@ -244,7 +244,7 @@ function initProjectNav() {
 
   let current = parseInt(match[1]);
 
-  const totalProjects = 20; // 🔥 UPDATE if needed
+  const totalProjects = 22; // 🔥 UPDATE if needed
 
   const prev = current - 1;
   const next = current + 1;
